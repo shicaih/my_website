@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'gloockregular';
+  src: url('./assets/Fonts/gloock-regular-webfont.woff2') format('woff2'),
+    url('./assets/Fonts/gloock-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
