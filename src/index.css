@@ -3,9 +3,38 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'gloockregular';
-  src: url('./assets/Fonts/gloock-regular-webfont.woff2') format('woff2'),
-    url('./assets/Fonts/gloock-regular-webfont.woff') format('woff');
+  font-family: 'jost-bold';
+  src: url('./assets/Fonts/Jost-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'jost';
+  src: url('./assets/Fonts/Jost-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'jost-light';
+  src: url('./assets/Fonts/Jost-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ubuntu';
+  src: url('./assets/Fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ubuntu-light';
+  src: url('./assets/Fonts/Ubuntu-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ubuntu-bold';
+  src: url('./assets/Fonts/Ubuntu-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,4 +44,8 @@ canvas {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+html {
+  background: #383838;
 }
