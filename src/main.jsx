@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { RouterProvider } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Router from './routes';
 import './index.css';
 
@@ -15,5 +16,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ApolloProvider client={client}>
       <RouterProvider router={Router} />
     </ApolloProvider>
+    <Analytics />
   </React.StrictMode>,
 );
