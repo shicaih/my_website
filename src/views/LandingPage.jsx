@@ -79,9 +79,9 @@ const LandingPage = () => {
               className="z-[-1] max-w-none object-fill"
             />
             <div className="absolute top-0 h-[100%] w-[100%] bg-[#00000040]" />
-            <div className="absolute right-5 bottom-5 text-xs text-[#ffffff70]">
+            {/* <div className="absolute right-5 bottom-5 text-xs text-[#ffffff70]">
               background image designed and rendered by me @Shicai He
-            </div>
+            </div> */}
           </div>
         )}
         <div className="flex flex-col items-center px-[120px] pt-[20%]">
@@ -95,8 +95,8 @@ const LandingPage = () => {
           </div>
           <div className="mt-20 text-base">
             Welcome to my little universe :)
-            {/* <br />
-            This place shows all my creations, feel free to walk around. */}
+            <br />
+            This place shows all my creations, feel free to walk around.
           </div>
           <div className="flex gap-10">
             <MainButton

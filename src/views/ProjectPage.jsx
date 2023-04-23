@@ -38,6 +38,10 @@ const getProject = (slug) => gql`
       tags {
         name
       }
+      links {
+        url
+        to
+      }
     }
     allProjectCategory {
       name
@@ -71,8 +75,7 @@ const contentComponents = {
       />
     ),
     h1: ({ value }) => <div className="text-2xl">{value}</div>,
-    image: ({ value }) =>
-      console.log(value) || <img src={urlFor(value.asset)} />,
+    image: ({ value }) => <img src={urlFor(value.asset)} />,
   },
 };
 
@@ -83,6 +86,7 @@ const ProjectPage = () => {
   const { projectSlug } = useParams();
   const { loading: projectLoading, data } = useQuery(getProject(projectSlug));
   const projectData = data ? data.allProject[0] : null;
+
   return projectLoading ? null : (
     <div>
       <Header />
@@ -126,17 +130,16 @@ const ProjectPage = () => {
                 />
               </div>
               <div className="flex justify-between gap-4">
-                <MainButton
-                  styleT="flex-1"
-                  buttonText="Project Website"
-                  onClick={() =>
-                    window.open(
-                      'https://projects.etc.cmu.edu/picopicopi/',
-                      '_blank',
-                    )
-                  }
-                />
-                <MainButton
+                {projectData.links.map((link) => (
+                  <MainButton
+                    styleT="flex-1"
+                    key={link.url}
+                    buttonText={link.to}
+                    onClick={() => window.open(link.url, '_blank')}
+                  />
+                ))}
+
+                {/* <MainButton
                   styleT="flex-1"
                   buttonText="Play Game"
                   onClick={() =>
@@ -145,7 +148,7 @@ const ProjectPage = () => {
                       '_blank',
                     )
                   }
-                />
+                /> */}
               </div>
             </div>
           </div>
