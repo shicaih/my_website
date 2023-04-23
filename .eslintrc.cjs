@@ -25,7 +25,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'max-len': [2, 250],
+    'max-len': [2, 9999],
     'no-multiple-empty-lines': [
       'error',
       {
@@ -39,7 +39,10 @@ module.exports = {
         allow: ['_d', '_dh', '_h', '_id', '_m', '_n', '_t', '_text'],
       },
     ],
+    'implicit-arrow-linebreak': 0,
+    'function-paren-newline': 0,
     'object-curly-newline': 0,
+    'react/jsx-curly-newline': 0,
     'react/jsx-filename-extension': 0,
     'react/jsx-one-expression-per-line': 0,
     'jsx-a11y/click-events-have-key-events': 0,

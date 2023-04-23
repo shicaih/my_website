@@ -1,23 +1,52 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const SectionTitle = ({ name, linkTo }) => (
-  <Link to={linkTo}>
-    <div className="text-white font-['jost-light'] hover:font-['jost-bold']">
-      {name}
-    </div>
-  </Link>
-);
+// Helpers
+import { scrollElementIntoView } from '../helpers';
 
-export default () => (
-  <div className="w-full h-16 bg-black flex items-center">
-    <div className="flex grow justify-between items-center ml-[2vw] mr-[2vw]">
-      <div className="text-base text-white font-['jost-light']">SHICAI HE</div>
-      <div className="flex justify-end gap-4">
-        <SectionTitle name="ALL PROJECTS" />
-        <SectionTitle name="BLOG" />
-        <SectionTitle name="ABOUT ME" />
-      </div>
-    </div>
+const SectionTitle = ({ name, onClick }) => (
+  <div
+    className="cursor-pointer font-futura uppercase underline-offset-4 hover:underline"
+    onClick={onClick}
+  >
+    {name}
   </div>
 );
+
+export default () => {
+  const navigate = useNavigate();
+  return (
+    <div className="absolute top-0 z-50 flex h-12 w-full items-center bg-black">
+      <div className="ml-[2vw] mr-[2vw] flex grow items-center justify-between">
+        <SectionTitle
+          name="Shicai He"
+          onClick={() => {
+            navigate('/');
+          }}
+        />
+        <div className="flex justify-end gap-4">
+          <SectionTitle
+            name="ALL PROJECTS"
+            onClick={() => {
+              navigate('/?scrollTo=projectList');
+              scrollElementIntoView('projectList');
+            }}
+          />
+          {/* <SectionTitle
+            name="BLOG"
+            onClick={() => {
+              navigate('/blogs');
+            }}
+          /> */}
+          <SectionTitle
+            name="ABOUT ME"
+            onClick={() => {
+              navigate('/?scrollTo=me');
+              scrollElementIntoView('me');
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
