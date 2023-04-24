@@ -8,6 +8,7 @@ import ImageUrlBuilder from '@sanity/image-url';
 
 // UIs
 import { Buttony, ScrollIndicator, MainButton } from '../UI/Buttons';
+import Loader from '../UI/Loading';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -87,7 +88,9 @@ const ProjectPage = () => {
   const { loading: projectLoading, data } = useQuery(getProject(projectSlug));
   const projectData = data ? data.allProject[0] : null;
 
-  return projectLoading ? null : (
+  return projectLoading ? (
+    <Loader />
+  ) : (
     <div>
       <Header />
       {/* The featured */}
@@ -130,7 +133,7 @@ const ProjectPage = () => {
                 />
               </div>
               <div className="flex justify-between gap-4">
-                {projectData.links.map((link) => (
+                {projectData.links?.map((link) => (
                   <MainButton
                     styleT="flex-1"
                     key={link.url}
@@ -138,17 +141,6 @@ const ProjectPage = () => {
                     onClick={() => window.open(link.url, '_blank')}
                   />
                 ))}
-
-                {/* <MainButton
-                  styleT="flex-1"
-                  buttonText="Play Game"
-                  onClick={() =>
-                    window.open(
-                      'https://picopicopi.itch.io/mochis-tale',
-                      '_blank',
-                    )
-                  }
-                /> */}
               </div>
             </div>
           </div>

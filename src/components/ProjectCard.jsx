@@ -10,7 +10,7 @@ export default ({ project }) => {
   const navigate = useNavigate();
 
   return (
-    <article className="flex h-72 gap-6 text-white transition">
+    <article className="flex h-72 flex-col gap-6 text-white transition lg:flex-row">
       <div
         className="aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl bg-black hover:shadow-xl"
         onClick={() => navigate(`/project/${slug.current}`)}
