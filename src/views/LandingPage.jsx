@@ -4,6 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 
 // UIs
 import { MainButton, ScrollIndicator, SocialButton } from '../UI/Buttons';
+import Loader from '../UI/Loading';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProjectList from '../components/ProjectList';
@@ -98,7 +99,9 @@ const LandingPage = () => {
           <ScrollIndicator scrollToId="projectList" />
         </div>
       </div>
-      {!projectLoading && (
+      {projectLoading ? (
+        <Loader />
+      ) : (
         <div className="flex w-full flex-col items-center">
           <div id="projectList" className="mt-20 max-w-[1024px]">
             <ProjectList data={projectData} />
