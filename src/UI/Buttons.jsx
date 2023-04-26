@@ -6,7 +6,7 @@ import { scrollElementIntoView } from '../helpers';
 // A UI component that looks like button but has no interactivity
 export const Buttony = ({ boldText, buttonText, styleT }) => (
   <div
-    className={`rounded-lg bg-zinc-700 p-3 text-center text-sm transition ${styleT}`}
+    className={`whitespace-nowrap rounded-lg bg-zinc-700 p-3 text-center text-sm transition ${styleT}`}
   >
     <span className="font-sansB">{boldText}</span>
     {buttonText}
@@ -35,7 +35,7 @@ export const BasicButton = ({ buttonText, onClick, tStyle }) => (
 );
 
 export const RadioButton = ({ buttonText, onClick, checked }) => (
-  <div onClick={onClick}>
+  <div onClick={onClick} className="whitespace-nowrap">
     <input
       type="radio"
       name={buttonText}
@@ -67,11 +67,11 @@ export const MainButton = ({ buttonText, styleT, onClick }) => (
 
 export const SocialButton = () => (
   <div className="group relative inline-block rounded-lg bg-indigo-600 px-8 py-3">
-    <span className="font-futura text-sm uppercase transition-opacity group-hover:opacity-0">
+    <span className="font-futura text-sm uppercase opacity-0 transition-opacity group-hover:opacity-0 lg:opacity-100">
       Connect with me
     </span>
 
-    <ul className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 transition-opacity group-hover:opacity-100">
+    <ul className="absolute inset-0 flex items-center justify-center gap-3 transition-opacity lg:opacity-0 lg:group-hover:opacity-100">
       <li>
         <a
           className="block rounded-full transition-opacity hover:opacity-90 focus:opacity-75 focus:outline-none"

@@ -10,7 +10,7 @@ export default ({ project }) => {
   const navigate = useNavigate();
 
   return (
-    <article className="flex h-72 flex-col gap-6 text-white transition lg:flex-row">
+    <article className="flex flex-col gap-4 transition lg:h-96 lg:flex-row">
       <div
         className="aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl bg-black hover:shadow-xl"
         onClick={() => navigate(`/project/${slug.current}`)}
@@ -32,7 +32,7 @@ export default ({ project }) => {
             <PortableText value={briefRaw} />
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2 overflow-x-auto">
           {tags.map((tag) => (
             <Buttony key={tag.name} buttonText={tag.name} />
           ))}

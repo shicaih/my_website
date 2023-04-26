@@ -12,6 +12,7 @@ module.exports = {
       futura: 'futura-pt',
     },
     extend: {
+      fontSize: '12px',
       colors: {
         greenC: '#848026',
         purpleC: '#441E8A',

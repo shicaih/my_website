@@ -65,9 +65,8 @@ const contentComponents = {
   types: {
     videoLink: ({ value }) => (
       <iframe
-        className="mt-4"
-        width="1024"
-        height="576"
+        className="mt-4 aspect-[16/9]"
+        width="100%"
         src={value.url}
         title="YouTube video player"
         frameBorder="0"
@@ -79,6 +78,46 @@ const contentComponents = {
     image: ({ value }) => <img src={urlFor(value.asset)} />,
   },
 };
+
+const ProjectDes = ({ projectData, styleT }) => (
+  <div
+    className={`mt-6 flex flex-col justify-between gap-4 lg:flex-row ${styleT}`}
+  >
+    {/* left part */}
+    <div className="text-md">
+      {projectData.description}
+      <br />
+      <br />
+      My Contribution:
+      <PortableText value={projectData.myContributionRaw} />
+    </div>
+    {/* right part */}
+    <div className="flex flex-col justify-between gap-4 lg:min-w-[400px]">
+      <div className="flex flex-col gap-4">
+        <Buttony
+          boldText="Platform: "
+          buttonText={projectData.platform}
+          styleT="bg-zinc-600"
+        />
+        <Buttony
+          boldText="My Role: "
+          buttonText={projectData.myRole}
+          styleT="bg-zinc-600"
+        />
+      </div>
+      <div className="flex justify-between gap-4">
+        {projectData.links?.map((link) => (
+          <MainButton
+            styleT="flex-1"
+            key={link.url}
+            buttonText={link.to}
+            onClick={() => window.open(link.url, '_blank')}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+);
 
 const ProjectPage = () => {
   useEffect(() => {
@@ -94,68 +133,37 @@ const ProjectPage = () => {
     <div>
       <Header />
       {/* The featured */}
-      <div className="relative h-[100vh]">
+      <div className="relative">
         {/* Background image and mask */}
-        <div className="absolute top-0 z-[-1] h-full w-full bg-black">
+        <div className="absolute top-0 z-[-1] h-[100svh] bg-black">
           <img
             src={projectData.coverImage.asset.url}
             className="z-[-1] h-full object-cover"
           />
           <div className="from-52.6% via-76.56% to-100%)] absolute top-0 h-[100%] w-[100%] bg-gradient-to-b from-[#00000000] via-[#00000072] to-[#000000]" />
-        </div>
-        {/* Project Info */}
-        <div className="px-[120px] pt-[30%]">
-          <div className="font-sansL text-xl">
-            {projectData.dateDescription}
-          </div>
-          <div className="font-sansB text-6xl">{projectData.name}</div>
-          <div className="mt-6 flex justify-between gap-10">
-            {/* left part */}
-            <div className="text-md">
-              {projectData.description}
-              <br />
-              <br />
-              My Contribution:
-              <PortableText value={projectData.myContributionRaw} />
-            </div>
-            {/* right part */}
-            <div className="flex min-w-[400px] flex-col justify-between gap-10">
-              <div className="flex flex-col gap-4">
-                <Buttony
-                  boldText="Platform: "
-                  buttonText={projectData.platform}
-                  styleT="bg-zinc-600"
-                />
-                <Buttony
-                  boldText="My Role: "
-                  buttonText={projectData.myRole}
-                  styleT="bg-zinc-600"
-                />
-              </div>
-              <div className="flex justify-between gap-4">
-                {projectData.links?.map((link) => (
-                  <MainButton
-                    styleT="flex-1"
-                    key={link.url}
-                    buttonText={link.to}
-                    onClick={() => window.open(link.url, '_blank')}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="mt-10 flex w-full justify-center">
+          <div className="absolute bottom-10 flex w-full justify-center">
             <ScrollIndicator scrollToId="article" />
           </div>
         </div>
-      </div>
-      {/* The actual article */}
-      <div id="article" className="flex flex-col items-center">
-        <div className="mt-20 w-[1024px]">
-          <PortableText
-            value={projectData.contentRaw}
-            components={contentComponents}
-          />
+        {/* Project Info */}
+        <div className="px-4 lg:px-10">
+          <div className="relative flex h-[100svh] flex-col justify-center lg:justify-end lg:pb-[100px]">
+            <div className="font-sansL text-xl">
+              {projectData.dateDescription}
+            </div>
+            <div className="font-sansB text-6xl">{projectData.name}</div>
+            <ProjectDes projectData={projectData} styleT="hidden lg:flex" />
+          </div>
+          <ProjectDes projectData={projectData} styleT="lg:hidden" />
+          {/* The actual article */}
+          <div id="article" className="flex flex-col items-center">
+            <div className="mt-4 lg:w-[1024px]">
+              <PortableText
+                value={projectData.contentRaw}
+                components={contentComponents}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

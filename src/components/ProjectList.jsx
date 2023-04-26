@@ -9,30 +9,28 @@ import ProjectCard from './ProjectCard';
 import { RadioButton } from '../UI/Buttons';
 
 const FilterList = ({ currentCategory, setCurrentCategory, categories }) => (
-  <fieldset className="my-4 flex items-center justify-start gap-4">
-    <div key="All">
+  <div className=" flex w-full items-center justify-start gap-4 overflow-x-scroll">
+    <RadioButton
+      key="all"
+      buttonText="All Projects"
+      onClick={() => {
+        scrollElementIntoView('projectList');
+        setCurrentCategory('All');
+      }}
+      checked={currentCategory === 'All'}
+    />
+    {categories.map((category) => (
       <RadioButton
-        buttonText="All Projects"
+        key={category}
+        buttonText={category}
         onClick={() => {
           scrollElementIntoView('projectList');
-          setCurrentCategory('All');
+          setCurrentCategory(category);
         }}
-        checked={currentCategory === 'All'}
+        checked={category === currentCategory}
       />
-    </div>
-    {categories.map((category) => (
-      <div key={category}>
-        <RadioButton
-          buttonText={category}
-          onClick={() => {
-            scrollElementIntoView('projectList');
-            setCurrentCategory(category);
-          }}
-          checked={category === currentCategory}
-        />
-      </div>
     ))}
-  </fieldset>
+  </div>
 );
 
 const ProjectList = ({ data }) => {
@@ -46,7 +44,7 @@ const ProjectList = ({ data }) => {
   }, [currentCategory]);
   return (
     <>
-      <div className="mb-10">
+      <div className="mb-10 flex w-full flex-col">
         <h1># Projects Overview</h1>
         <FilterList
           currentCategory={currentCategory}

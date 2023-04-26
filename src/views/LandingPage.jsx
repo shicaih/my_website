@@ -102,45 +102,47 @@ const LandingPage = () => {
       {projectLoading ? (
         <Loader />
       ) : (
-        <div className="flex w-full flex-col items-center">
-          <div id="projectList" className="mt-20 max-w-[1024px]">
-            <ProjectList data={projectData} />
-          </div>
-          <div id="me" className="flex flex-col items-center overflow-auto">
-            <div className="mt-20 max-w-[1024px]">
-              <h1># About Me</h1>
-              <div className="flex gap-10">
-                <div className="aspect-[3/4] overflow-hidden rounded-2xl">
-                  <img src={me} />
-                </div>
-                <div className="flex flex-col justify-between">
-                  <div>
-                    Hi! My name is Shicai He. I'm a 2nd-year graduate student at
-                    Entertainment Technology Center, Carnegie Mellon University.
-                    <br />
-                    <br />
-                    I am a programmer with an interdisciplinary background in
-                    computer science, CG art, and architecture. What I love
-                    about programming is that it empowers me to solve problems
-                    in our daily life and pack the solutions as apps for other
-                    people to use. I'm passionate upon developing applications
-                    and games that people enjoy.
-                    <br />
-                    <br />
-                    I'm currently a fullstack engineer intern at Tesla and I'm
-                    looking for software engineer / game developer jobs.
+        <div className="flex flex-col px-4 lg:items-center">
+          <div className="flex flex-col lg:max-w-[1024px]">
+            <div id="projectList" className="mt-10">
+              <ProjectList data={projectData} />
+            </div>
+            <div id="me" className="flex flex-col items-center overflow-auto">
+              <div className="mt-4 lg:max-w-[1024px]">
+                <h1># About Me</h1>
+                <div className="flex flex-col gap-4 lg:flex-row">
+                  <div className="aspect-[3/4] overflow-hidden rounded-2xl">
+                    <img src={me} />
                   </div>
-                  <div>
-                    <SocialButton />
+                  <div className="flex flex-col justify-between gap-4">
+                    <div>
+                      Hi! My name is Shicai He. I'm a 2nd-year graduate student
+                      at Entertainment Technology Center, Carnegie Mellon
+                      University.
+                      <br />
+                      <br />
+                      I am a programmer with an interdisciplinary background in
+                      computer science, CG art, and architecture. What I love
+                      about programming is that it empowers me to solve problems
+                      in our daily life and pack the solutions as apps for other
+                      people to use. I'm passionate upon developing applications
+                      and games that people enjoy.
+                      <br />
+                      <br />
+                      I'm currently a fullstack engineer intern at Tesla and I'm
+                      looking for software engineer / game developer jobs.
+                    </div>
+                    <div>
+                      <SocialButton />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <Footer />
           </div>
         </div>
       )}
-
-      <Footer />
     </div>
   );
 };

@@ -4,7 +4,7 @@
     @apply bg-zinc-800 text-white;
   }
   h1 {
-    @apply my-8 font-futura text-4xl font-bold uppercase;
+    @apply my-4 font-futura text-4xl font-bold uppercase;
   }
 }
 @tailwind components;
