@@ -52,9 +52,10 @@ const LandingPage = () => {
   useEffect(() => {
     const scrollTo = searchParams.get('scrollTo');
     if (scrollTo) {
-      scrollElementIntoView(scrollTo);
+      scrollElementIntoView(scrollTo, 0);
+      setSearchParams({});
     }
-  }, [projectLoading, projectData]);
+  }, [projectLoading, projectData, searchParams]);
 
   return (
     <div>
@@ -63,9 +64,6 @@ const LandingPage = () => {
         <div className="absolute top-0 z-[-1] h-[100vh] w-full overflow-hidden">
           <img src={cover} className="z-[-1] max-w-none object-fill" />
           <div className="absolute top-0 h-[100%] w-[100%] bg-[#00000040]" />
-          {/* <div className="absolute right-5 bottom-5 text-xs text-[#ffffff70]">
-              background image designed and rendered by me @Shicai He
-            </div> */}
         </div>
         <div className="flex flex-col items-center px-[120px] pt-[20%]">
           <div className="text-6xl">
@@ -76,7 +74,7 @@ const LandingPage = () => {
           <div className="font-futura text-3xl uppercase">
             a web & game developer
           </div>
-          <div className="mt-20 text-base">
+          <div className="mt-20 text-center">
             Welcome to my little universe :)
             <br />
             This place shows all my creations, feel free to walk around.

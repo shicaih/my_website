@@ -1,3 +1,9 @@
-export const scrollElementIntoView = (elementName) => {
-  document.getElementById(elementName)?.scrollIntoView({ behavior: 'smooth' });
+export const scrollElementIntoView = (elementName, delay) => {
+  setTimeout(
+    () =>
+      document
+        .getElementById(elementName)
+        ?.scrollIntoView({ behavior: 'smooth' }),
+    delay,
+  );
 };
