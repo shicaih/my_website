@@ -9,7 +9,7 @@ import ProjectCard from './ProjectCard';
 import { RadioButton } from '../UI/Buttons';
 
 const FilterList = ({ currentCategory, setCurrentCategory, categories }) => (
-  <div className=" flex w-full items-center justify-start gap-4 overflow-x-scroll">
+  <div className=" flex w-full items-center justify-start gap-4 overflow-x-auto">
     <RadioButton
       key="all"
       buttonText="All Projects"

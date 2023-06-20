@@ -60,9 +60,9 @@ const LandingPage = () => {
   return (
     <div>
       <Header />
-      <div className="relative h-[100svh] w-[100svw]">
-        <div className="absolute top-0 z-[-1] h-[100vh] w-full overflow-hidden">
-          <img src={cover} className="z-[-1] max-w-none object-fill" />
+      <div className="relative h-[100svh]">
+        <div className="absolute top-0 z-[-1] h-[100vh] overflow-hidden">
+          <img src={cover} className="z-[-1] object-cover" />
           <div className="absolute top-0 h-[100%] w-[100%] bg-[#00000040]" />
         </div>
         <div className="flex flex-col items-center px-[120px] pt-[20%]">
