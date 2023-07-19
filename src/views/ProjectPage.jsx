@@ -130,15 +130,15 @@ const ProjectPage = () => {
   return projectLoading ? (
     <Loader />
   ) : (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       {/* The featured */}
       <div className="relative">
         {/* Background image and mask */}
-        <div className="absolute top-0 z-[-1] h-[100svh] bg-black">
+        <div className="absolute top-0 z-[-1] h-[100svh] w-[100svw] bg-black">
           <img
             src={projectData.coverImage.asset.url}
-            className="z-[-1] h-full object-cover"
+            className="z-[-1] object-cover h-full w-full "
           />
           <div className="from-52.6% via-76.56% to-100%)] absolute top-0 h-[100%] w-[100%] bg-gradient-to-b from-[#00000000] via-[#00000072] to-[#000000]" />
           <div className="absolute bottom-10 flex w-full justify-center">

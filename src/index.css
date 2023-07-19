@@ -6,6 +6,28 @@
   h1 {
     @apply my-4 font-futura text-4xl font-bold uppercase;
   }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgb(202, 202, 202);
+    border: 1px solid #ccc;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #888888;
+    border: 1px solid #353535;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e2e2e2;
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(left, #22ADD4, #1E98BA);
+  }
 }
 @tailwind components;
 @tailwind utilities;

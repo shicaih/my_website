@@ -58,11 +58,11 @@ const LandingPage = () => {
   }, [projectLoading, projectData, searchParams]);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       <div className="relative h-[100svh]">
-        <div className="absolute top-0 z-[-1] h-[100vh] overflow-hidden">
-          <img src={cover} className="z-[-1] object-cover" />
+        <div className="absolute top-0 z-[-1] h-[100vh] w-[100vw]">
+          <img src={cover} className="z-[-1] object-cover w-full h-full" />
           <div className="absolute top-0 h-[100%] w-[100%] bg-[#00000040]" />
         </div>
         <div className="flex flex-col items-center px-[120px] pt-[20%]">
