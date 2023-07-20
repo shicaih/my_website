@@ -10,7 +10,7 @@ export default () => (
       <br />
       This website is AIGC-free.
       <br />
-      Last update date: Jun 20, 2023
+      Last update date: Jul 20, 2023
     </div>
   </div>
 );

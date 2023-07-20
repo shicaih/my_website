@@ -75,7 +75,7 @@ const contentComponents = {
       />
     ),
     h1: ({ value }) => <div className="text-2xl">{value}</div>,
-    image: ({ value }) => <img src={urlFor(value.asset)} />,
+    image: ({ value }) => <div className="my-6"><img src={urlFor(value.asset)} /></div>,
   },
 };
 
@@ -157,7 +157,7 @@ const ProjectPage = () => {
           <ProjectDes projectData={projectData} styleT="lg:hidden" />
           {/* The actual article */}
           <div id="article" className="flex flex-col items-center">
-            <div className="mt-4 lg:w-[1024px]">
+            <div className="mt-4 lg:w-[800px] leading-loose">
               <PortableText
                 value={projectData.contentRaw}
                 components={contentComponents}
