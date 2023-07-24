@@ -8,6 +8,7 @@ import ImageUrlBuilder from '@sanity/image-url';
 
 // UIs
 import { Buttony, ScrollIndicator, MainButton } from '../UI/Buttons';
+// import { BlackMask80 } from '../UI/Auxilliary';
 import Loader from '../UI/Loading';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -75,25 +76,33 @@ const contentComponents = {
       />
     ),
     h1: ({ value }) => <div className="text-2xl">{value}</div>,
-    image: ({ value }) => <div className="my-6"><img src={urlFor(value.asset)} /></div>,
+    p: ({ value }) => <p style={{ margin: '10px' }}>{value}</p>,
+    image: ({ value }) => (
+      <div className="my-6">
+        <img src={urlFor(value.asset)} />
+      </div>
+    ),
   },
 };
 
 const ProjectDes = ({ projectData, styleT }) => (
-  <div
-    className={`mt-6 flex flex-col justify-between gap-4 lg:flex-row ${styleT}`}
-  >
-    {/* left part */}
-    <div className="text-md">
+  <div className={`flex max-w-[400px] flex-col justify-center ${styleT}`}>
+    {/* Text part */}
+    <div className="text-md my-4">
+      <span className="font-sansB">Platform:</span> {projectData.platform}
+      <br />
+      <span className="font-sansB">My Role:</span> {projectData.myRole}
+      <br />
+      <br />
       {projectData.description}
       <br />
       <br />
-      My Contribution:
+      <span className="font-sansB">My Contribution:</span>
       <PortableText value={projectData.myContributionRaw} />
     </div>
-    {/* right part */}
+    {/* Icon part */}
     <div className="flex flex-col justify-between gap-4 lg:min-w-[400px]">
-      <div className="flex flex-col gap-4">
+      {/* <div className="flex flex-col gap-4">
         <Buttony
           boldText="Platform: "
           buttonText={projectData.platform}
@@ -104,7 +113,7 @@ const ProjectDes = ({ projectData, styleT }) => (
           buttonText={projectData.myRole}
           styleT="bg-zinc-600"
         />
-      </div>
+      </div> */}
       <div className="flex justify-between gap-4">
         {projectData.links?.map((link) => (
           <MainButton
@@ -132,38 +141,38 @@ const ProjectPage = () => {
   ) : (
     <div className="overflow-x-hidden">
       <Header />
-      {/* The featured */}
-      <div className="relative">
+      {/* Article header */}
+      <div className="relative flex flex-col bg-black lg:flex-row-reverse">
         {/* Background image and mask */}
-        <div className="absolute top-0 z-[-1] h-[100svh] w-[100svw] bg-black">
+        <div className="flex-grow bg-black">
           <img
             src={projectData.coverImage.asset.url}
-            className="z-[-1] object-cover h-full w-full "
+            className="z-[-1] h-full w-full object-cover "
           />
-          <div className="from-52.6% via-76.56% to-100%)] absolute top-0 h-[100%] w-[100%] bg-gradient-to-b from-[#00000000] via-[#00000072] to-[#000000]" />
-          <div className="absolute bottom-10 flex w-full justify-center">
-            <ScrollIndicator scrollToId="article" />
-          </div>
         </div>
         {/* Project Info */}
-        <div className="px-4 lg:px-10">
-          <div className="relative flex h-[100svh] flex-col justify-center lg:justify-end lg:pb-[100px]">
+        <div className="max-w-[600px] px-4 lg:px-20">
+          <div className="relative flex lg:h-[100svh] flex-col justify-center ">
             <div className="font-sansL text-xl">
               {projectData.dateDescription}
             </div>
-            <div className="font-sansB text-6xl">{projectData.name}</div>
+            <div className="font-sansB text-4xl lg:text-6xl">{projectData.name}</div>
             <ProjectDes projectData={projectData} styleT="hidden lg:flex" />
           </div>
           <ProjectDes projectData={projectData} styleT="lg:hidden" />
-          {/* The actual article */}
-          <div id="article" className="flex flex-col items-center">
-            <div className="mt-4 lg:w-[800px] leading-loose">
-              <PortableText
-                value={projectData.contentRaw}
-                components={contentComponents}
-              />
-            </div>
-          </div>
+        </div>
+
+        <div className="absolute bottom-10 flex w-full items-center justify-center">
+          <ScrollIndicator scrollToId="article" />
+        </div>
+      </div>
+      {/* Article content */}
+      <div id="article" className="flex flex-col items-center">
+        <div className="mt-4 leading-loose lg:w-[720px]">
+          <PortableText
+            value={projectData.contentRaw}
+            components={contentComponents}
+          />
         </div>
       </div>
       <Footer />

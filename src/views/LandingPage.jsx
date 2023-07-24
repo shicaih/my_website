@@ -4,12 +4,13 @@ import { useQuery, gql } from '@apollo/client';
 
 // UIs
 import { MainButton, ScrollIndicator, SocialButton } from '../UI/Buttons';
+import { BlackMask60 } from '../UI/Auxilliary';
 import Loader from '../UI/Loading';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProjectList from '../components/ProjectList';
-import cover from '../assets/1web.png';
 import me from '../assets/me.jpg';
+import bgVideo from '../assets/polio_cover_video.webm';
 
 // Helpers
 import { scrollElementIntoView } from '../helpers';
@@ -62,8 +63,10 @@ const LandingPage = () => {
       <Header />
       <div className="relative h-[100svh]">
         <div className="absolute top-0 z-[-1] h-[100vh] w-[100vw]">
-          <img src={cover} className="z-[-1] object-cover w-full h-full" />
-          <div className="absolute top-0 h-[100%] w-[100%] bg-[#00000040]" />
+          <video autoPlay muted loop className="z-[-1] object-cover w-full h-full">
+            <source src={bgVideo} />
+          </video>
+          <BlackMask60 />
         </div>
         <div className="flex flex-col items-center px-[120px] pt-[20%]">
           <div className="text-6xl">
@@ -72,12 +75,10 @@ const LandingPage = () => {
             </span>
           </div>
           <div className="font-futura text-3xl uppercase">
-            a web & game developer
+            a programmer & Tech Artist devoted to graphics
           </div>
           <div className="mt-20 text-center">
-            Welcome to my little universe :)
-            <br />
-            This place shows all my creations, feel free to walk around.
+            Welcome to my portfolio website
           </div>
           <div className="flex gap-10">
             <MainButton
@@ -114,7 +115,7 @@ const LandingPage = () => {
                   </div>
                   <div className="flex flex-col justify-between gap-4">
                     <div>
-                      Hi! My name is Shicai He. I'm a 2nd-year graduate student
+                      Hi! My name is Shicai He. I&#39;m a 2nd-year graduate student
                       at Entertainment Technology Center, Carnegie Mellon
                       University.
                       <br />
@@ -123,11 +124,11 @@ const LandingPage = () => {
                       computer science, CG art, and architecture. What I love
                       about programming is that it empowers me to solve problems
                       in our daily life and pack the solutions as apps for other
-                      people to use. I'm passionate upon developing applications
+                      people to use. I&#39;m passionate upon developing applications
                       and games that people enjoy.
                       <br />
                       <br />
-                      I'm currently a fullstack engineer intern at Tesla and I'm
+                      I&#39;m currently a fullstack engineer intern at Tesla and I&#39;m
                       looking for software engineer / game developer jobs.
                     </div>
                     <div>
