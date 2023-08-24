@@ -7,4 +7,9 @@ export default defineConfig({
   server: {
     port: 1024,
   },
+  build: {
+    rollupOptions: {
+      external: ['react-code-blocks'],
+    },
+  },
 });

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
-import { CodeBlock, dracula } from 'react-code-blocks';
 
 // Helpers
 import { PortableText } from '@portabletext/react';
