@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
+import { CodeBlock, dracula } from 'react-code-blocks';
 
 // Helpers
 import { PortableText } from '@portabletext/react';
 import ImageUrlBuilder from '@sanity/image-url';
 
 // UIs
-import { Buttony, ScrollIndicator, MainButton } from '../UI/Buttons';
+import { ScrollIndicator, MainButton } from '../UI/Buttons';
 // import { BlackMask80 } from '../UI/Auxilliary';
 import Loader from '../UI/Loading';
 import Header from '../components/Header';
@@ -29,6 +30,7 @@ const getProject = (slug) => gql`
       myRole
       myContributionRaw
       contentRaw
+      code
       coverImage {
         asset {
           url
@@ -85,7 +87,7 @@ const contentComponents = {
   },
 };
 
-const ProjectDes = ({ projectData, styleT }) => (
+const ProjectDes = ({ projectData, styleT, navigate }) => (
   <div className={`flex max-w-[400px] flex-col justify-center ${styleT}`}>
     {/* Text part */}
     <div className="text-md my-4">
@@ -124,6 +126,7 @@ const ProjectDes = ({ projectData, styleT }) => (
           />
         ))}
       </div>
+      {projectData.code ? (<MainButton buttonText="Code Example" onClick={() => navigate(`/code/${projectData.slug.current}`)} />) : null}
     </div>
   </div>
 );
@@ -133,6 +136,7 @@ const ProjectPage = () => {
     window.scrollTo(0, 0);
   }, []);
   const { projectSlug } = useParams();
+  const nav = useNavigate();
   const { loading: projectLoading, data } = useQuery(getProject(projectSlug));
   const projectData = data ? data.allProject[0] : null;
 
@@ -157,7 +161,7 @@ const ProjectPage = () => {
               {projectData.dateDescription}
             </div>
             <div className="font-sansB text-4xl lg:text-6xl">{projectData.name}</div>
-            <ProjectDes projectData={projectData} styleT="hidden lg:flex" />
+            <ProjectDes projectData={projectData} styleT="hidden lg:flex" navigate={nav} />
           </div>
           <ProjectDes projectData={projectData} styleT="lg:hidden" />
         </div>

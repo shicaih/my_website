@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import LandingPage from './views/LandingPage';
 import ProjectPage from './views/ProjectPage';
+import CodePage from './views/CodePage';
 import ErrorPage from './views/ErrorPage';
 
 export default createBrowserRouter([
@@ -16,7 +17,8 @@ export default createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: '/love',
-    element: <div>Hello</div>,
+    path: 'code/:projectSlug/',
+    element: <CodePage />,
+    errorElement: <ErrorPage />,
   },
 ]);
