@@ -37,7 +37,7 @@ const CodePage = () => {
     && (
     <Code
       code={projectData.code}
-      language="javascript"
+      language="csharp"
       showLineNumbers
       startingLineNumber={1}
       wrapLines
