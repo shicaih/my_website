@@ -75,7 +75,7 @@ export const SocialButton = () => (
       <li>
         <a
           className="block rounded-full transition-opacity hover:opacity-90 focus:opacity-75 focus:outline-none"
-          href="mailto:shicaih@pm.me"
+          href="mailto:heshicai1@gmail.com"
           target="_blank"
           rel="noreferrer"
         >

@@ -8,9 +8,7 @@ export default () => (
       <br />
       This website is made by me, aka @Shicai He with passion and love.
       <br />
-      This website is AIGC-free.
-      <br />
-      Last update date: Jul 23, 2023
+      Last update date: Jan. 24, 2025
     </div>
   </div>
 );

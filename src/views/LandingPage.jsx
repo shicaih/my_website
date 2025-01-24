@@ -63,7 +63,12 @@ const LandingPage = () => {
       <Header />
       <div className="relative h-[100svh]">
         <div className="absolute top-0 z-[-1] h-[100vh] w-[100vw]">
-          <video autoPlay muted loop className="z-[-1] object-cover w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            className="z-[-1] h-full w-full object-cover"
+          >
             <source src={bgVideo} />
           </video>
           <BlackMask60 />
@@ -75,7 +80,7 @@ const LandingPage = () => {
             </span>
           </div>
           <div className="font-futura text-3xl uppercase">
-            a programmer & Tech Artist devoted to graphics
+            a software engineer & designer
           </div>
           <div className="mt-20 text-center">
             Welcome to my portfolio website
@@ -115,21 +120,18 @@ const LandingPage = () => {
                   </div>
                   <div className="flex flex-col justify-between gap-4">
                     <div>
-                      Hi! My name is Shicai He. I&#39;m a 2nd-year graduate student
-                      at Entertainment Technology Center, Carnegie Mellon
-                      University.
+                      Hi! My name is Shicai He. I&#39;m a software engineer with
+                      skills in full-stack, game developement and computer
+                      grahics. I gradauted from Carnegie Mellon University with
+                      a Master degree in Entertainment Technology and I
+                      currently work at Kooapps.
                       <br />
-                      <br />
-                      I am a programmer with an interdisciplinary background in
-                      computer science, CG art, and architecture. What I love
-                      about programming is that it empowers me to solve problems
-                      in our daily life and pack the solutions as apps for other
-                      people to use. I&#39;m passionate upon developing applications
-                      and games that people enjoy.
-                      <br />
-                      <br />
-                      I&#39;m currently a fullstack engineer intern at Tesla and I&#39;m
-                      looking for software engineer / game developer jobs.
+                      <br />I am a programmer with an interdisciplinary
+                      background in computer science, CG art, and architecture.
+                      What I love about programming is that it empowers me to
+                      solve problems in our daily life and pack the solutions as
+                      apps for other people to use. I&#39;m passionate upon
+                      developing applications and games that people enjoy.
                     </div>
                     <div>
                       <SocialButton />
